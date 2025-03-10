@@ -1,0 +1,53 @@
+# GitHub Pages Jekyll Configuration
+
+# Site settings
+title: Stripe Bundle for Symfony
+description: A Symfony bundle for integrating Stripe payments into your Symfony applications with Doctrine ORM and API Platform
+url: "https://tomedio.github.io/stripe-bundle"
+baseurl: "/stripe-bundle"
+repository: tomedio/stripe-bundle
+
+# Theme settings
+remote_theme: pmarsceill/just-the-docs
+color_scheme: light
+
+# Search settings
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+  button: false
+
+# Aux links for the upper right navigation
+aux_links:
+  "Stripe Bundle on GitHub":
+    - "https://github.com/tomedio/stripe-bundle"
+
+# Footer content
+footer_content: "Copyright &copy; 2025 Tomedio. Distributed under an <a href=\"https://github.com/tomedio/stripe-bundle/blob/main/LICENSE\">MIT license.</a>"
+
+# Collections for documentation structure
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+
+just_the_docs:
+  collections:
+    docs:
+      name: Documentation
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - LICENSE

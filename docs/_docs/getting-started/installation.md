@@ -1,0 +1,120 @@
+---
+layout: default
+title: Installation
+parent: Getting Started
+nav_order: 1
+---
+
+# Installation
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+## Requirements
+
+Before installing the Stripe Bundle, make sure your system meets the following requirements:
+
+- PHP 8.1 or higher
+- Symfony 6.0 or higher
+- Doctrine ORM 2.10 or higher
+- API Platform 3.0 or higher
+- Stripe PHP SDK 10.0 or higher
+
+## Installation Steps
+
+### Step 1: Install the bundle
+
+Use Composer to install the bundle:
+
+```bash
+composer require tomedio/stripe-bundle
+```
+
+### Step 2: Register the bundle
+
+If you're using Symfony Flex, the bundle should be automatically registered. If not, add it to your `config/bundles.php`:
+
+```php
+// config/bundles.php
+return [
+    // ...
+    Tomedio\StripeBundle\StripeBundle::class => ['all' => true],
+];
+```
+
+### Step 3: Configure the bundle
+
+Create a configuration file at `config/packages/stripe_bundle.yaml`:
+
+```yaml
+# config/packages/stripe_bundle.yaml
+stripe_bundle:
+    api_key: '%env(STRIPE_API_KEY)%'
+    webhook_secret: '%env(STRIPE_WEBHOOK_SECRET)%'
+    success_url: '%env(STRIPE_SUCCESS_URL)%'
+    cancel_url: '%env(STRIPE_CANCEL_URL)%'
+    subscription_plans:
+        - id: basic
+          name: 'Basic Plan'
+          description: 'Basic features'
+          amount: 999
+          currency: 'usd'
+          interval: 'month'
+        - id: premium
+          name: 'Premium Plan'
+          description: 'Premium features'
+          amount: 1999
+          currency: 'usd'
+          interval: 'month'
+          trial_period_days: 14
+```
+
+### Step 4: Add environment variables
+
+Add the required environment variables to your `.env` file:
+
+```
+# .env
+STRIPE_API_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_SUCCESS_URL=https://your-domain.com/payment/success
+STRIPE_CANCEL_URL=https://your-domain.com/payment/cancel
+```
+
+{: .warning }
+Never commit your Stripe API key to version control. Always use environment variables.
+
+### Step 5: Import routes
+
+Add the bundle's routes to your `config/routes.yaml`:
+
+```yaml
+# config/routes.yaml
+stripe_bundle:
+    resource: '@StripeBundle/Controller/'
+    type: annotation
+```
+
+## Verifying the Installation
+
+To verify that the bundle is installed correctly, run the following command:
+
+```bash
+php bin/console debug:container stripe
+```
+
+You should see several services related to the Stripe Bundle.
+
+## Next Steps
+
+Now that you have installed the Stripe Bundle, you can:
+
+1. [Configure your subscription plans]({% link _docs/getting-started/subscription-plans.md %})
+2. [Implement the required interfaces]({% link _docs/integration/implementing-interfaces.md %})
+3. [Set up webhook handling]({% link _docs/features/webhooks.md %})

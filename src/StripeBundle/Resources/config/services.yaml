@@ -1,0 +1,73 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $stripeApiKey: '%stripe_bundle.api_key%'
+            $webhookSecret: '%stripe_bundle.webhook_secret%'
+            $successUrl: '%stripe_bundle.success_url%'
+            $cancelUrl: '%stripe_bundle.cancel_url%'
+
+    # Register all services in the bundle
+    Tomedio\StripeBundle\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,Entity,Resources,Tests}'
+
+    # Controllers
+    Tomedio\StripeBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+    # Webhook controller as a public service
+    Tomedio\StripeBundle\Controller\WebhookController:
+        public: true
+
+    # Stripe client service
+    Tomedio\StripeBundle\Service\StripeClient:
+        arguments:
+            $apiKey: '%stripe_bundle.api_key%'
+
+    # Customer service
+    Tomedio\StripeBundle\Service\CustomerService:
+        arguments:
+            $stripeClient: '@Tomedio\StripeBundle\Service\StripeClient'
+            $subscriptionService: '@?Tomedio\StripeBundle\Service\SubscriptionService'
+
+    # Subscription service
+    Tomedio\StripeBundle\Service\SubscriptionService:
+        arguments:
+            $stripeClient: '@Tomedio\StripeBundle\Service\StripeClient'
+            $successUrl: '%stripe_bundle.success_url%'
+            $cancelUrl: '%stripe_bundle.cancel_url%'
+            $planService: '@Tomedio\StripeBundle\Service\PlanService'
+            $eventDispatcher: '@event_dispatcher'
+
+    # Plan service
+    Tomedio\StripeBundle\Service\PlanService:
+        arguments:
+            $stripeClient: '@Tomedio\StripeBundle\Service\StripeClient'
+
+    # Invoice service
+    Tomedio\StripeBundle\Service\InvoiceService:
+        arguments:
+            $stripeClient: '@Tomedio\StripeBundle\Service\StripeClient'
+            $eventDispatcher: '@event_dispatcher'
+
+    # Usage service (for metered billing and invoice items)
+    Tomedio\StripeBundle\Service\UsageService:
+        arguments:
+            $stripeClient: '@Tomedio\StripeBundle\Service\StripeClient'
+
+    # Credit service (for prepaid credits system)
+    Tomedio\StripeBundle\Service\CreditService:
+        arguments:
+            $stripeClient: '@Tomedio\StripeBundle\Service\StripeClient'
+            $successUrl: '%stripe_bundle.success_url%'
+            $cancelUrl: '%stripe_bundle.cancel_url%'
+            $customerService: '@Tomedio\StripeBundle\Service\CustomerService'
+
+    # Webhook handler
+    Tomedio\StripeBundle\Service\WebhookHandler:
+        arguments:
+            $webhookSecret: '%stripe_bundle.webhook_secret%'
