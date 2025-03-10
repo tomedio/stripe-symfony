@@ -48,9 +48,24 @@ return [
 ];
 ```
 
-### Step 3: Configure the bundle
+### Step 3: Add environment variables
 
-Create a configuration file at `config/packages/stripe_bundle.yaml`:
+The bundle will automatically create the necessary configuration files during installation. You just need to add the required environment variables to your `.env` file:
+
+```
+# .env
+STRIPE_API_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_SUCCESS_URL=https://your-domain.com/payment/success
+STRIPE_CANCEL_URL=https://your-domain.com/payment/cancel
+```
+
+{: .warning }
+Never commit your Stripe API key to version control. Always use environment variables.
+
+### Step 4: Customize the configuration (optional)
+
+The bundle creates a default configuration file at `config/packages/stripe_bundle.yaml`. You can customize it to add subscription plans or change other settings:
 
 ```yaml
 # config/packages/stripe_bundle.yaml
@@ -73,32 +88,6 @@ stripe_bundle:
           currency: 'usd'
           interval: 'month'
           trial_period_days: 14
-```
-
-### Step 4: Add environment variables
-
-Add the required environment variables to your `.env` file:
-
-```
-# .env
-STRIPE_API_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-STRIPE_SUCCESS_URL=https://your-domain.com/payment/success
-STRIPE_CANCEL_URL=https://your-domain.com/payment/cancel
-```
-
-{: .warning }
-Never commit your Stripe API key to version control. Always use environment variables.
-
-### Step 5: Import routes
-
-Add the bundle's routes to your `config/routes.yaml`:
-
-```yaml
-# config/routes.yaml
-stripe_bundle:
-    resource: '@StripeBundle/Controller/'
-    type: annotation
 ```
 
 ## Verifying the Installation

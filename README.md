@@ -33,7 +33,9 @@ return [
 ];
 ```
 
-### 3. Configure environment variables
+### 3. Add environment variables
+
+The bundle will automatically create the necessary configuration files during installation. You just need to add the required environment variables to your `.env` file:
 
 ```
 # .env
@@ -41,26 +43,6 @@ STRIPE_API_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_SUCCESS_URL=https://your-domain.com/payment/success
 STRIPE_CANCEL_URL=https://your-domain.com/payment/cancel
-```
-
-### 4. Create basic configuration
-
-```yaml
-# config/packages/stripe_bundle.yaml
-stripe_bundle:
-    api_key: '%env(STRIPE_API_KEY)%'
-    webhook_secret: '%env(STRIPE_WEBHOOK_SECRET)%'
-    success_url: '%env(STRIPE_SUCCESS_URL)%'
-    cancel_url: '%env(STRIPE_CANCEL_URL)%'
-```
-
-### 5. Import routes
-
-```yaml
-# config/routes.yaml
-stripe_bundle:
-    resource: '@StripeBundle/Controller/'
-    type: annotation
 ```
 
 ## Documentation

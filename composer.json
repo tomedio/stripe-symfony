@@ -1,5 +1,6 @@
 {
   "name": "tomedio/stripe-symfony",
+  "version": "0.1.1",
   "description": "Stripe integration for Symfony applications with Doctrine and API Platform",
   "type": "symfony-bundle",
   "license": "MIT",
@@ -45,5 +46,12 @@
   },
   "config": {
     "sort-packages": true
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": true,
+      "endpoint": ["https://api.github.com/repos/symfony/recipes/contents/index.json", "flex://defaults"],
+      "recipe-dir": "symfony/recipes"
+    }
   }
 }

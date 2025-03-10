@@ -1,0 +1,22 @@
+# This file is auto-generated during the composer install
+stripe_bundle:
+    api_key: '%env(STRIPE_API_KEY)%'
+    webhook_secret: '%env(STRIPE_WEBHOOK_SECRET)%'
+    success_url: '%env(STRIPE_SUCCESS_URL)%'
+    cancel_url: '%env(STRIPE_CANCEL_URL)%'
+    subscription_plans: []
+    # Example subscription plan configuration:
+    # subscription_plans:
+    #     - id: basic
+    #       name: 'Basic Plan'
+    #       description: 'Basic features'
+    #       amount: 999
+    #       currency: 'usd'
+    #       interval: 'month'
+    #     - id: premium
+    #       name: 'Premium Plan'
+    #       description: 'Premium features'
+    #       amount: 1999
+    #       currency: 'usd'
+    #       interval: 'month'
+    #       trial_period_days: 14
