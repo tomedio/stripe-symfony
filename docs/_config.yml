@@ -33,7 +33,7 @@ footer_content: "Copyright &copy; 2025 Tomedio. Distributed under an <a href=\"h
 # Collections for documentation structure
 collections:
   docs:
-    permalink: "/:collection/:path/"
+    permalink: ":collection/:path/"
     output: true
 
 just_the_docs:
