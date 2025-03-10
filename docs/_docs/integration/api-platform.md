@@ -116,7 +116,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Tomedio\StripeBundle\Contract\SubscriptionInterface;
 use Tomedio\StripeBundle\Contract\SubscriptionPlanInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Enum\SubscriptionStatus;
 
 #[ApiResource(
@@ -174,7 +174,7 @@ class Subscription implements SubscriptionInterface
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['subscription:read'])]
-    private StripeCustomerAwareInterface $user;
+    private StripeUserInterface $user;
 
     #[ORM\ManyToOne(targetEntity: SubscriptionPlan::class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -220,7 +220,7 @@ use ApiPlatform\Metadata\GetCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Tomedio\StripeBundle\Contract\StripeInvoiceInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Contract\SubscriptionInterface;
 use Tomedio\StripeBundle\Enum\Currency;
 use Tomedio\StripeBundle\Enum\InvoiceStatus;
@@ -249,7 +249,7 @@ class Invoice implements StripeInvoiceInterface
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['invoice:read'])]
-    private StripeCustomerAwareInterface $user;
+    private StripeUserInterface $user;
 
     #[ORM\ManyToOne(targetEntity: Subscription::class)]
     #[Groups(['invoice:read'])]

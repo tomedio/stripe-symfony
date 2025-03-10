@@ -24,7 +24,7 @@ This page covers the key interfaces you need to implement in your application.
 
 ## Required Interfaces
 
-### StripeCustomerAwareInterface
+### StripeUserInterface
 
 This interface should be implemented by your User entity or any entity that represents a customer in your application.
 
@@ -36,12 +36,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface as SymfonyUserInterface;
 use Tomedio\StripeBundle\Contract\AddressInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Contract\SubscriptionInterface;
 use Tomedio\StripeBundle\Enum\Currency;
 
 #[ORM\Entity]
-class User implements SymfonyUserInterface, StripeCustomerAwareInterface
+class User implements SymfonyUserInterface, StripeUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -436,7 +436,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Tomedio\StripeBundle\Contract\SubscriptionInterface;
 use Tomedio\StripeBundle\Contract\SubscriptionPlanInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Enum\SubscriptionStatus;
 
 #[ORM\Entity]
@@ -449,7 +449,7 @@ class Subscription implements SubscriptionInterface
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private StripeCustomerAwareInterface $user;
+    private StripeUserInterface $user;
 
     #[ORM\ManyToOne(targetEntity: SubscriptionPlan::class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -477,12 +477,12 @@ class Subscription implements SubscriptionInterface
         return $this->id;
     }
 
-    public function getUser(): StripeCustomerAwareInterface
+    public function getUser(): StripeUserInterface
     {
         return $this->user;
     }
 
-    public function setUser(StripeCustomerAwareInterface $user): self
+    public function setUser(StripeUserInterface $user): self
     {
         $this->user = $user;
         return $this;
@@ -567,7 +567,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Tomedio\StripeBundle\Contract\StripeInvoiceInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Contract\SubscriptionInterface;
 use Tomedio\StripeBundle\Enum\Currency;
 use Tomedio\StripeBundle\Enum\InvoiceStatus;
@@ -582,7 +582,7 @@ class Invoice implements StripeInvoiceInterface
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private StripeCustomerAwareInterface $user;
+    private StripeUserInterface $user;
 
     #[ORM\ManyToOne(targetEntity: Subscription::class)]
     private ?SubscriptionInterface $subscription = null;
@@ -615,12 +615,12 @@ class Invoice implements StripeInvoiceInterface
         return $this->id;
     }
 
-    public function getUser(): StripeCustomerAwareInterface
+    public function getUser(): StripeUserInterface
     {
         return $this->user;
     }
 
-    public function setUser(StripeCustomerAwareInterface $user): self
+    public function setUser(StripeUserInterface $user): self
     {
         $this->user = $user;
         return $this;
@@ -727,7 +727,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Tomedio\StripeBundle\Contract\CreditTransactionInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Enum\CreditTransactionType;
 use Tomedio\StripeBundle\Enum\Currency;
 
@@ -741,7 +741,7 @@ class CreditTransaction implements CreditTransactionInterface
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private StripeCustomerAwareInterface $user;
+    private StripeUserInterface $user;
 
     #[ORM\Column(type: 'integer')]
     private int $amount;
@@ -774,12 +774,12 @@ class CreditTransaction implements CreditTransactionInterface
         return $this->id;
     }
 
-    public function getUser(): StripeCustomerAwareInterface
+    public function getUser(): StripeUserInterface
     {
         return $this->user;
     }
 
-    public function setUser(StripeCustomerAwareInterface $user): self
+    public function setUser(StripeUserInterface $user): self
     {
         $this->user = $user;
         return $this;

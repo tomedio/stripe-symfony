@@ -193,6 +193,19 @@ Dispatched when the bundle needs to find a user by their Stripe customer ID.
   - `getUser()`: Get the user entity that has been set
   - `setUser(?StripeUserInterface $user)`: Set the user entity to be returned to the bundle
 
+### FindUserByStripeCustomerEvent
+
+Dispatched when the bundle needs to find a user by both their Stripe customer ID and user ID.
+
+- **Event Class**: `Tomedio\StripeBundle\Event\FindUserByStripeCustomerEvent`
+- **Event Name**: `stripe.user.find_by_customer`
+- **Purpose**: Find a user entity by their Stripe customer ID and user ID
+- **Methods**:
+  - `getStripeCustomerId()`: Get the Stripe customer ID
+  - `getUserId()`: Get the user ID
+  - `getUser()`: Get the user entity that has been set
+  - `setUser(?StripeUserInterface $user)`: Set the user entity to be returned to the bundle
+
 ## Webhook Events
 
 These events are dispatched when Stripe webhook events are received.

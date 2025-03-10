@@ -24,7 +24,7 @@ The Stripe Bundle provides a credits system that allows you to implement pay-per
 
 ### 1. Implement the Required Interfaces
 
-First, make sure your User entity implements the `StripeCustomerAwareInterface` and has a credits balance field:
+First, make sure your User entity implements the `StripeUserInterface` and has a credits balance field:
 
 ```php
 <?php
@@ -33,10 +33,10 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface as SymfonyUserInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 
 #[ORM\Entity]
-class User implements SymfonyUserInterface, StripeCustomerAwareInterface
+class User implements SymfonyUserInterface, StripeUserInterface
 {
     // ... other properties
     
@@ -67,7 +67,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Tomedio\StripeBundle\Contract\CreditTransactionInterface;
-use Tomedio\StripeBundle\Contract\StripeCustomerAwareInterface;
+use Tomedio\StripeBundle\Contract\StripeUserInterface;
 use Tomedio\StripeBundle\Enum\CreditTransactionType;
 use Tomedio\StripeBundle\Enum\Currency;
 
@@ -81,7 +81,7 @@ class CreditTransaction implements CreditTransactionInterface
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private StripeCustomerAwareInterface $user;
+    private StripeUserInterface $user;
 
     #[ORM\Column(type: 'integer')]
     private int $amount;
