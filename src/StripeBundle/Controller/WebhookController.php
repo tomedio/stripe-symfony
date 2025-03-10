@@ -18,9 +18,7 @@ class WebhookController
         $this->webhookHandler = $webhookHandler;
     }
 
-    /**
-     * @Route("/stripe/webhook", name="stripe_webhook", methods={"POST"})
-     */
+    #[Route('/stripe/webhook', name: 'stripe_webhook', methods: ['POST'])]
     public function handleWebhook(Request $request): Response
     {
         return $this->webhookHandler->handleWebhook($request);

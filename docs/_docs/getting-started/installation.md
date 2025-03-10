@@ -28,7 +28,24 @@ Before installing the Stripe Bundle, make sure your system meets the following r
 
 ## Installation Steps
 
-### Step 1: Install the bundle
+### Step 1: Configure Symfony Flex (Optional)
+
+This bundle provides custom Symfony Flex recipes to simplify the installation process. To use them, add the following to your application's `composer.json` file:
+
+```json
+{
+    "extra": {
+        "symfony": {
+            "endpoint": [
+                "https://raw.githubusercontent.com/tomedio/flex-recipes/main/index.json",
+                "flex://defaults"
+            ]
+        }
+    }
+}
+```
+
+### Step 2: Install the bundle
 
 Use Composer to install the bundle:
 
@@ -36,7 +53,7 @@ Use Composer to install the bundle:
 composer require tomedio/stripe-symfony
 ```
 
-### Step 2: Register the bundle
+### Step 3: Register the bundle
 
 If you're using Symfony Flex, the bundle should be automatically registered. If not, add it to your `config/bundles.php`:
 
@@ -48,7 +65,7 @@ return [
 ];
 ```
 
-### Step 3: Add environment variables
+### Step 4: Add environment variables
 
 The bundle will automatically create the necessary configuration files during installation. You just need to add the required environment variables to your `.env` file:
 
@@ -63,7 +80,7 @@ STRIPE_CANCEL_URL=https://your-domain.com/payment/cancel
 {: .warning }
 Never commit your Stripe API key to version control. Always use environment variables.
 
-### Step 4: Customize the configuration (optional)
+### Step 5: Customize the configuration (optional)
 
 The bundle creates a default configuration file at `config/packages/stripe_bundle.yaml`. You can customize it to add subscription plans or change other settings:
 

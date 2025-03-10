@@ -1,4 +1,0 @@
-# This file is auto-generated during the composer install
-stripe_bundle:
-    resource: '@StripeBundle/Controller/'
-    type: annotation

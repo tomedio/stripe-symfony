@@ -17,13 +17,30 @@ A Symfony bundle for seamless integration of Stripe payments into your Symfony a
 
 ## Quick Installation
 
-### 1. Install via Composer
+### 1. Configure Symfony Flex (Optional)
+
+This bundle provides custom Symfony Flex recipes to simplify the installation process. To use them, add the following to your application's `composer.json` file:
+
+```json
+{
+    "extra": {
+        "symfony": {
+            "endpoint": [
+                "https://raw.githubusercontent.com/tomedio/flex-recipes/main/index.json",
+                "flex://defaults"
+            ]
+        }
+    }
+}
+```
+
+### 2. Install via Composer
 
 ```bash
 composer require tomedio/stripe-symfony
 ```
 
-### 2. Register the bundle
+### 3. Register the bundle
 
 ```php
 // config/bundles.php
@@ -33,7 +50,7 @@ return [
 ];
 ```
 
-### 3. Add environment variables
+### 4. Add environment variables
 
 The bundle will automatically create the necessary configuration files during installation. You just need to add the required environment variables to your `.env` file:
 
