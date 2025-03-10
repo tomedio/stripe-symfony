@@ -16,8 +16,8 @@ To work on the documentation locally, you'll need to have Ruby and Bundler insta
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/tomedio/stripe-bundle.git
-cd stripe-bundle
+git clone https://github.com/tomedio/stripe-symfony.git
+cd stripe-symfony
 ```
 
 2. Install dependencies:
@@ -33,7 +33,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-4. Open your browser and navigate to `http://localhost:4000/stripe-bundle/`
+4. Open your browser and navigate to `http://localhost:4000/stripe-symfony/`
 
 ### Making Changes
 

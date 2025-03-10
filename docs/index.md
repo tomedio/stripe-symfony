@@ -12,7 +12,7 @@ A Symfony bundle for integrating Stripe payments into your Symfony applications 
 {: .fs-6 .fw-300 }
 
 [Get Started]({% link _docs/getting-started/installation.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View on GitHub](https://github.com/tomedio/stripe-bundle){: .btn .fs-5 .mb-4 .mb-md-0 }
+[View on GitHub](https://github.com/tomedio/stripe-symfony){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
@@ -45,4 +45,4 @@ Get up and running quickly with our [installation guide]({% link _docs/getting-s
 
 ## License
 
-Stripe Bundle for Symfony is open-sourced software licensed under the [MIT license](https://github.com/tomedio/stripe-bundle/blob/main/LICENSE).
+Stripe Bundle for Symfony is open-sourced software licensed under the [MIT license](https://github.com/tomedio/stripe-symfony/blob/main/LICENSE).

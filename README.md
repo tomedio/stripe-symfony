@@ -2,7 +2,7 @@
 
 A Symfony bundle for seamless integration of Stripe payments into your Symfony applications with Doctrine ORM and API Platform support.
 
-[![Deploy Documentation](https://github.com/tomedio/stripe-bundle/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/tomedio/stripe-bundle/actions/workflows/deploy-docs.yml)
+[![Deploy Documentation](https://github.com/tomedio/stripe-symfony/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/tomedio/stripe-symfony/actions/workflows/deploy-docs.yml)
 
 ## Features
 
@@ -20,7 +20,7 @@ A Symfony bundle for seamless integration of Stripe payments into your Symfony a
 ### 1. Install via Composer
 
 ```bash
-composer require tomedio/stripe-bundle
+composer require tomedio/stripe-symfony
 ```
 
 ### 2. Register the bundle
@@ -67,7 +67,7 @@ stripe_bundle:
 
 For detailed implementation guides, interface references, and examples, please visit our comprehensive documentation:
 
-**[https://tomedio.github.io/stripe-bundle/](https://tomedio.github.io/stripe-bundle/)**
+**[https://tomedio.github.io/stripe-symfony/](https://tomedio.github.io/stripe-symfony/)**
 
 The documentation includes:
 

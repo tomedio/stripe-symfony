@@ -33,7 +33,7 @@ Before installing the Stripe Bundle, make sure your system meets the following r
 Use Composer to install the bundle:
 
 ```bash
-composer require tomedio/stripe-bundle
+composer require tomedio/stripe-symfony
 ```
 
 ### Step 2: Register the bundle

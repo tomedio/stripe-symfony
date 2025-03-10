@@ -3,9 +3,9 @@
 # Site settings
 title: Stripe Bundle for Symfony
 description: A Symfony bundle for integrating Stripe payments into your Symfony applications with Doctrine ORM and API Platform
-url: "https://tomedio.github.io/stripe-bundle"
-baseurl: "/stripe-bundle"
-repository: tomedio/stripe-bundle
+url: "https://tomedio.github.io/stripe-symfony"
+baseurl: "/stripe-symfony"
+repository: tomedio/stripe-symfony
 
 # Theme settings
 remote_theme: pmarsceill/just-the-docs
@@ -25,10 +25,10 @@ search:
 # Aux links for the upper right navigation
 aux_links:
   "Stripe Bundle on GitHub":
-    - "https://github.com/tomedio/stripe-bundle"
+    - "https://github.com/tomedio/stripe-symfony"
 
 # Footer content
-footer_content: "Copyright &copy; 2025 Tomedio. Distributed under an <a href=\"https://github.com/tomedio/stripe-bundle/blob/main/LICENSE\">MIT license.</a>"
+footer_content: "Copyright &copy; 2025 Tomedio. Distributed under an <a href=\"https://github.com/tomedio/stripe-symfony/blob/main/LICENSE\">MIT license.</a>"
 
 # Collections for documentation structure
 collections:
