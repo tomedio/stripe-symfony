@@ -115,6 +115,6 @@ You should see several services related to the Stripe Bundle.
 
 Now that you have installed the Stripe Bundle, you can:
 
-1. [Configure your subscription plans]({% link _docs/getting-started/subscription-plans.md %})
-2. [Implement the required interfaces]({% link _docs/integration/implementing-interfaces.md %})
-3. [Set up webhook handling]({% link _docs/features/webhooks.md %})
+1. [Configure your subscription plans]({{ site.baseurl }}{% link _docs/getting-started/subscription-plans.md %})
+2. [Implement the required interfaces]({{ site.baseurl }}{% link _docs/integration/implementing-interfaces.md %})
+3. [Set up webhook handling]({{ site.baseurl }}{% link _docs/features/webhooks.md %})

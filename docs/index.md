@@ -11,7 +11,7 @@ permalink: /
 A Symfony bundle for integrating Stripe payments into your Symfony applications with Doctrine ORM and API Platform.
 {: .fs-6 .fw-300 }
 
-[Get Started]({% link _docs/getting-started/installation.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Get Started]({{ site.baseurl }}{% link _docs/getting-started/installation.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [View on GitHub](https://github.com/tomedio/stripe-symfony){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
@@ -41,7 +41,7 @@ Stripe Bundle for Symfony provides a seamless integration between Stripe's payme
 
 ## Getting Started
 
-Get up and running quickly with our [installation guide]({% link _docs/getting-started/installation.md %}).
+Get up and running quickly with our [installation guide]({{ site.baseurl }}{% link _docs/getting-started/installation.md %}).
 
 ## License
 
