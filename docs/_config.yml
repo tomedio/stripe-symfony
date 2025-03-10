@@ -8,7 +8,7 @@ baseurl: "/stripe-symfony"
 repository: tomedio/stripe-symfony
 
 # Theme settings
-remote_theme: pmarsceill/just-the-docs
+remote_theme: just-the-docs/just-the-docs
 color_scheme: light
 
 # Search settings
