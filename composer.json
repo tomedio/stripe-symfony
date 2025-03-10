@@ -1,9 +1,16 @@
 {
   "name": "tomedio/stripe-symfony",
-  "version": "0.0.1",
   "description": "Stripe integration for Symfony applications with Doctrine and API Platform",
   "type": "symfony-bundle",
   "license": "MIT",
+  "keywords": ["symfony", "stripe", "payment", "subscription", "doctrine", "api-platform"],
+  "homepage": "https://tomedio.github.io/stripe-symfony/",
+  "authors": [
+    {
+      "name": "Tomedio",
+      "homepage": "https://github.com/tomedio"
+    }
+  ],
   "require": {
     "php": ">=8.1",
     "symfony/framework-bundle": "^6.0|^7.0",
@@ -31,5 +38,12 @@
     "psr-4": {
       "Tomedio\\StripeBundle\\Tests\\": "tests/StripeBundle/"
     }
+  },
+  "support": {
+    "issues": "https://github.com/tomedio/stripe-symfony/issues",
+    "source": "https://github.com/tomedio/stripe-symfony"
+  },
+  "config": {
+    "sort-packages": true
   }
 }
