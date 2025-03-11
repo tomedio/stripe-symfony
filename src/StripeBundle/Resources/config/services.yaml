@@ -3,10 +3,6 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-        bind:
-            $webhookSecret: '%stripe_bundle.webhook_secret%'
-            $successUrl: '%stripe_bundle.success_url%'
-            $cancelUrl: '%stripe_bundle.cancel_url%'
 
     # Register all services in the bundle
     Tomedio\StripeBundle\:
