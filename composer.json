@@ -1,6 +1,6 @@
 {
   "name": "tomedio/stripe-symfony",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Stripe integration for Symfony applications with Doctrine and API Platform",
   "type": "symfony-bundle",
   "license": "MIT",
