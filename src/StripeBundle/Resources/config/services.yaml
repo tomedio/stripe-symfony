@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: false
         bind:
-            $stripeApiKey: '%stripe_bundle.api_key%'
+            $apiKey: '%stripe_bundle.api_key%'
             $webhookSecret: '%stripe_bundle.webhook_secret%'
             $successUrl: '%stripe_bundle.success_url%'
             $cancelUrl: '%stripe_bundle.cancel_url%'
