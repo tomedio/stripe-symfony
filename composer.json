@@ -4,7 +4,14 @@
   "description": "Stripe integration for Symfony applications with Doctrine and API Platform",
   "type": "symfony-bundle",
   "license": "MIT",
-  "keywords": ["symfony", "stripe", "payment", "subscription", "doctrine", "api-platform"],
+  "keywords": [
+    "symfony",
+    "stripe",
+    "payment",
+    "subscription",
+    "doctrine",
+    "api-platform"
+  ],
   "homepage": "https://tomedio.github.io/stripe-symfony/",
   "authors": [
     {
@@ -51,8 +58,7 @@
     "symfony": {
       "allow-contrib": true,
       "endpoint": [
-        "https://api.github.com/repos/symfony/recipes/contents/index.json",
-        "https://api.github.com/repos/symfony/recipes-contrib/contents/index.json",
+        "https://raw.githubusercontent.com/tomedio/flex-recipes/flex/main/index.json",
         "flex://defaults"
       ]
     }
